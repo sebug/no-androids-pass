@@ -23,13 +23,14 @@ namespace Sebug.Function
             {
                 log.LogInformation("C# HTTP trigger function processed a request.");
 
-                string name = req.Query["name"];
+                string serviceAccountInfo = Environment.GetEnvironmentVariable("SERVICE_ACCOUNT_INFO");
 
                 string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
                 var nvc = HttpUtility.ParseQueryString(requestBody);
 
-                string responseMessage = "Issuing pass for: " + nvc["first_name"] + " " + nvc["last_name"];
+                string responseMessage = "Issuing pass for: " + nvc["first_name"] + " " +
+                nvc["last_name"] + ", the service account info length is " + serviceAccountInfo.Length;
 
                 return new OkObjectResult(responseMessage);
             }
