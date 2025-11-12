@@ -13,4 +13,11 @@ Make a new Google Cloud project for your passes. Then [create a service account]
 
 Once the service account is created, create a key - download the JSON - and invite the user as a developer from the Wallet console.
 
+## Create a resource group in Azure
+You'll need this for the static web app that issues the passes.
+
+
+## Create a static web app
+From the resource group and link it to your GitHub repo.
+
 ![No Androids Logo](no_androids.png)
