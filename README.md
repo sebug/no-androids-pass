@@ -20,4 +20,6 @@ You'll need this for the static web app that issues the passes.
 ## Create a static web app
 From the resource group and link it to your GitHub repo.
 
+## Enable the Google Wallet 
+
 ![No Androids Logo](no_androids.png)
