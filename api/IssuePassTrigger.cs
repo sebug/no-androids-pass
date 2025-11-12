@@ -21,7 +21,7 @@ namespace Sebug.Function
         {
             try
             {
-                log.LogInformation("C# HTTP trigger function processed a request.");
+                log.LogInformation("Issue pass requested");
 
                 string serviceAccountInfo = Environment.GetEnvironmentVariable("SERVICE_ACCOUNT_INFO");
 
