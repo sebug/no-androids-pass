@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -23,7 +24,9 @@ namespace Sebug.Function
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
-            string responseMessage = "Got the following information: " + requestBody;
+            var nvc = HttpUtility.ParseQueryString(requestBody);
+
+            string responseMessage = "Issuing pass for: " + nvc["first_name"] + " " + nvc["last_name"];
 
             return new OkObjectResult(responseMessage);
         }
