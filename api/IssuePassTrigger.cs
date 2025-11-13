@@ -23,14 +23,15 @@ namespace Sebug.Function
             {
                 log.LogInformation("Issue pass requested");
 
-                string serviceAccountInfo = Environment.GetEnvironmentVariable("SERVICE_ACCOUNT_INFO");
+                /*string serviceAccountInfo = Environment.GetEnvironmentVariable("SERVICE_ACCOUNT_INFO");
 
                 string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
                 var nvc = HttpUtility.ParseQueryString(requestBody);
 
                 string responseMessage = "Issuing pass for: " + nvc["first_name"] + " " +
-                nvc["last_name"] + ", the service account info length is " + serviceAccountInfo.Length;
+                nvc["last_name"] + ", the service account info length is " + serviceAccountInfo.Length; */
+                string responseMessage = "Without doing anything.";
 
                 return new OkObjectResult(responseMessage);
             }
