@@ -19,26 +19,19 @@ namespace Sebug.Function
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            try
-            {
-                log.LogInformation("Issue pass requested");
 
-                string serviceAccountInfo = Environment.GetEnvironmentVariable("SERVICE_ACCOUNT_INFO");
+            log.LogInformation("Issue pass requested");
 
-                string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            string serviceAccountInfo = Environment.GetEnvironmentVariable("SERVICE_ACCOUNT_INFO");
 
-                var nvc = HttpUtility.ParseQueryString(requestBody);
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
-                string responseMessage = "Issuing pass for: " + nvc["first_name"] + " " +
-                nvc["last_name"] + ", the service account info length is " + serviceAccountInfo.Length;
+            var nvc = HttpUtility.ParseQueryString(requestBody);
 
-                return new OkObjectResult(responseMessage);
-            }
-            catch (Exception ex)
-            {
-                log.LogError(exception: ex, ex.Message);
-                return new BadRequestObjectResult(ex.Message);
-            }
+            string responseMessage = "Issuing pass for: " + nvc["first_name"] + " " +
+            nvc["last_name"] + ", the service account info length is " + serviceAccountInfo.Length;
+
+            return new OkObjectResult(responseMessage);
         }
     }
 }
